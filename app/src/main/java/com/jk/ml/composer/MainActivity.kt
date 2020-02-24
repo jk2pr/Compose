@@ -37,19 +37,42 @@ class MainActivity : AppCompatActivity() {
 
             Column {
                 TopAppBar(
+                    navigationIcon = {
+                        AppBarIcon(icon = +imageResource(id = android.R.drawable.ic_menu_camera),
+                    onClick = {
+
+                    })
+                    },
                     title = {
                         Text(text = "Composer")
                     },
                     color = Color.White
 
                 )
-                VerticalScroller {
-                    Column {
-                        (0..100).forEachIndexed { index, _ ->
-                            createListItem(index)
-                            Divider(color = Color.Blue, height = 1.dp)
+                VerticalScroller(
+                    isScrollable = true,
+
+                    child = {
+
+                        Column {
+                            (0..5).forEachIndexed { index, _ ->
+                                createListItem(index)
+                                Divider(color = Color.Blue, height = 1.dp)
+                            }
                         }
-                    }
+                    })
+
+                Container(alignment = Alignment.BottomCenter, expanded = true) {
+                    BottomAppBar(
+                        navigationIcon = {
+                            AppBarIcon(
+                                +imageResource(android.R.drawable.ic_menu_month)
+                            ) { Toast.makeText(this@MainActivity, "Home", Toast.LENGTH_LONG).show() }
+                        },
+                        fabConfiguration =null,
+                        actionData= listOf(+imageResource(android.R.drawable.ic_menu_share))
+
+                    )
 
                 }
             }
