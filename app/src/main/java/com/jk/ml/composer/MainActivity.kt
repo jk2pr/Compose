@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
 
     //Feature 1
+    //Feature 2
     @Preview
     @Composable
     fun Test() {
